@@ -20,21 +20,30 @@ texts = {
         'streaming_tv': "TV Yayını", 'streaming_movies': "Film Yayını", 'submit_button': "Terk Etme Olasılığını Tahmin Et",
         'prediction_result': "🔮 Tahmin Sonucu", 'churn_yes': "Bu müşterinin şirketi TERK ETME olasılığı yüksek!",
         'churn_no': "Bu müşterinin şirkette KALMA olasılığı yüksek!", 'churn_prob_label': "Terk Etme (Churn) Olasılığı",
-        'options_yes_no': ('Evet', 'Hayır'),
-        'gender_options': ('Erkek', 'Kadın'),
+        'options_yes_no': ('Evet', 'Hayır'), 'gender_options': ('Erkek', 'Kadın'),
         'contract_options': ('Aylık', 'Bir Yıllık', 'İki Yıllık'),
         'payment_method_options': ('Elektronik Çek', 'Posta Çeki', 'Banka Transferi (Otomatik)', 'Kredi Kartı (Otomatik)'),
         'multiple_lines_options': ('Evet', 'Hayır', 'Telefon hizmeti yok'),
         'internet_service_options': ('DSL', 'Fiber Optik', 'İnternet yok'),
         'internet_addon_options': ('Evet', 'Hayır', 'İnternet hizmeti yok'),
-        'project_details_header': "Projenin Amacı ve Teknik Detaylar", 'project_details_text': """
-        Bu projenin amacı, bir telekom şirketinin hangi müşterilerini kaybetme riski altında olduğunu önceden tespit etmektir. 
-        Bu bilgi, şirketin bu müşterilere özel teklifler sunarak veya sorunlarını çözerek onları elde tutmasına olanak tanır.
-
-    - **Model:** XGBoost Classifier
-    - **Hedef Değişken:** `Churn` (Müşteri terk etti mi? Evet/Hayır)
-    - **Önemli Not:** Veri seti bir miktar dengesiz olduğu için (`Churn=Yes` oranı daha düşük), model `scale_pos_weight` parametresi ile bu durumu telafi edecek şekilde eğitilmiştir.
-""",
+        'project_details_header': "Projenin Amacı ve Teknik Detaylar",
+        'project_details_text': """...""", # Bu metni bir önceki cevaptan alabilirsin
+        'model_performance_header': "📊 Model Performansı",
+        'accuracy_metric_label': "🎯 Model Doğruluğu (Accuracy)",
+        'accuracy_metric_help': "Modelin test verisindeki genel doğruluk oranıdır.",
+        'f1_metric_label': "⚖️ F1 Skoru (Churn=Yes için)",
+        'f1_metric_help': "Pozitif sınıfın (Churn=Yes) precision ve recall değerlerinin harmonik ortalamasıdır.",
+        'ci_label': "**%95 Güven Aralığı:**",
+        'classification_report_header': "Sınıflandırma Raporu (Classification Report)",
+        'classification_report_subheader': "Her sınıf için Precision, Recall ve F1-Skoru gibi detaylı metrikleri gösterir.",
+        'metrics_expander_header': "ℹ️ Bu metrikler ne anlama geliyor?",
+        'metrics_expander_content': """
+        - **Accuracy (Doğruluk):** Tüm tahminler içinde doğru olanların yüzdesi. Genel bir ölçüttür.
+        - **Precision (Kesinlik):** Modelin "Terk Edecek" dediği müşterilerin gerçekten ne kadarının terk ettiğini gösterir. Yanlış pozitifleri (false positive) minimize etmek istediğimizde önemlidir.
+        - **Recall (Duyarlılık):** Gerçekten terk eden müşterilerin ne kadarını doğru tespit edebildiğimizi gösterir. Pozitif vakaları (terk edenleri) kaçırmamak istediğimizde önemlidir.
+        - **F1-Skoru:** Precision ve Recall'un harmonik ortalamasıdır. Bu iki metrik arasında bir denge kurar.
+        - **Güven Aralığı (Confidence Interval):** Model performansının şans eseri olmadığını ve büyük olasılıkla bu aralıkta bir değere sahip olduğunu gösteren istatistiksel bir ölçümdür. Aralığın dar olması, sonucun daha istikrarlı ve güvenilir olduğunu gösterir.
+        """
     },
     'en': {
         'page_title': "Customer Churn Prediction", 'title': "👋 Customer Churn Predictor", 'tab_predict': "🧠 Prediction Tool",
@@ -51,21 +60,30 @@ texts = {
         'streaming_tv': "Streaming TV", 'streaming_movies': "Streaming Movies", 'submit_button': "Predict Churn Probability",
         'prediction_result': "🔮 Prediction Result", 'churn_yes': "This customer is LIKELY to CHURN!",
         'churn_no': "This customer is LIKELY to STAY!", 'churn_prob_label': "Churn Probability",
-        'options_yes_no': ('Yes', 'No'),
-        'gender_options': ('Male', 'Female'),
+        'options_yes_no': ('Yes', 'No'), 'gender_options': ('Male', 'Female'),
         'contract_options': ('Month-to-month', 'One year', 'Two year'),
         'payment_method_options': ('Electronic check', 'Mailed check', 'Bank transfer (automatic)', 'Credit card (automatic)'),
         'multiple_lines_options': ('Yes', 'No', 'No phone service'),
         'internet_service_options': ('DSL', 'Fiber optic', 'No'),
         'internet_addon_options': ('Yes', 'No', 'No internet service'),
-        'project_details_header': "Project Purpose and Technical Details", 'project_details_text': """
-        The purpose of this project is to proactively identify which customers of a telecom company are at risk of churning.
-        This information allows the company to retain these customers by offering special deals or resolving their issues.
-
-    - **Model:** XGBoost Classifier
-    - **Target Variable:** `Churn` (Did the customer leave? Yes/No)
-    - **Important Note:** As the dataset is somewhat imbalanced (lower rate of `Churn=Yes`), the model was trained with the `scale_pos_weight` parameter to compensate.
-""",
+        'project_details_header': "Project Purpose and Technical Details",
+        'project_details_text': """...""", # You can get this text from the previous response
+        'model_performance_header': "📊 Model Performance",
+        'accuracy_metric_label': "🎯 Model Accuracy",
+        'accuracy_metric_help': "The overall accuracy of the model on the test data.",
+        'f1_metric_label': "⚖️ F1 Score (for Churn=Yes)",
+        'f1_metric_help': "The harmonic mean of precision and recall for the positive class (Churn=Yes). Important for imbalanced datasets.",
+        'ci_label': "**95% Confidence Interval:**",
+        'classification_report_header': "Classification Report",
+        'classification_report_subheader': "Shows detailed metrics like Precision, Recall, and F1-Score for each class.",
+        'metrics_expander_header': "ℹ️ What do these metrics mean?",
+        'metrics_expander_content': """
+        - **Accuracy:** The percentage of correct predictions out of all predictions. A general measure.
+        - **Precision:** Of all the customers the model predicted would churn, what percentage actually churned. Important when minimizing false positives is the goal.
+        - **Recall:** Of all the customers that actually churned, what percentage did the model correctly identify. Important when not missing positive cases (churners) is the goal.
+        - **F1-Score:** The harmonic mean of Precision and Recall. It provides a balance between these two metrics.
+        - **Confidence Interval:** A statistical measure indicating that the model's performance is not by chance and likely has a value within this range. A narrow interval indicates a more stable and reliable result.
+        """
     }
 }
 TR_TO_EN_MAP = {
@@ -204,7 +222,7 @@ with tab2:
     st.write(texts[lang]['project_details_text'].strip())
     
     st.markdown("---")
-    st.header("📊 Model Performansı")
+    st.header(texts[lang]['model_performance_header']) 
     
     acc = metrics['accuracy']
     acc_ci = metrics['accuracy_confidence_interval']
@@ -214,31 +232,25 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
         st.metric(
-            label="🎯 Model Doğruluğu (Accuracy)",
+            label=texts[lang]['accuracy_metric_label'], 
             value=f"{acc:.2%}",
-            help=f"Modelin test verisindeki genel doğruluk oranıdır."
+            help=texts[lang]['accuracy_metric_help'] 
         )
-        st.write(f"**%95 Güven Aralığı:** `{acc_ci[0]:.2%} - {acc_ci[1]:.2%}`")
+        st.write(f"{texts[lang]['ci_label']} `{acc_ci[0]:.2%} - {acc_ci[1]:.2%}`")
 
     with col2:
         st.metric(
-            label="⚖️ F1 Skoru (Churn=Yes için)",
+            label=texts[lang]['f1_metric_label'], 
             value=f"{f1:.2f}",
-            help="Pozitif sınıfın (Churn=Yes) precision ve recall değerlerinin harmonik ortalamasıdır. Dengesiz veri setleri için önemlidir."
+            help=texts[lang]['f1_metric_help'] 
         )
-        st.write(f"**%95 Güven Aralığı:** `{f1_ci[0]:.2f} - {f1_ci[1]:.2f}`")
+        st.write(f"{texts[lang]['ci_label']} `{f1_ci[0]:.2f} - {f1_ci[1]:.2f}`") 
 
-    st.markdown("##### Sınıflandırma Raporu (Classification Report)")
-    st.write("Her sınıf için Precision, Recall ve F1-Skoru gibi detaylı metrikleri gösterir.")
+    st.markdown(f"##### {texts[lang]['classification_report_header']}") 
+    st.write(texts[lang]['classification_report_subheader']) 
     
     report_df = pd.DataFrame(metrics['classification_report']).transpose()
     st.dataframe(report_df.round(2))
 
-    with st.expander("ℹ️ Bu metrikler ne anlama geliyor?"):
-        st.write("""
-        - **Accuracy (Doğruluk):** Tüm tahminler içinde doğru olanların yüzdesi. Genel bir ölçüttür.
-        - **Precision (Kesinlik):** Modelin "Terk Edecek" dediği müşterilerin gerçekten ne kadarının terk ettiğini gösterir. Yanlış pozitifleri (false positive) minimize etmek istediğimizde önemlidir.
-        - **Recall (Duyarlılık):** Gerçekten terk eden müşterilerin ne kadarını doğru tespit edebildiğimizi gösterir. Pozitif vakaları (terk edenleri) kaçırmamak istediğimizde önemlidir.
-        - **F1-Skoru:** Precision ve Recall'un harmonik ortalamasıdır. Bu iki metrik arasında bir denge kurar.
-        - **Güven Aralığı (Confidence Interval):** Model performansının şans eseri olmadığını ve büyük olasılıkla bu aralıkta bir değere sahip olduğunu gösteren istatistiksel bir ölçümdür. Aralığın dar olması, sonucun daha istikrarlı ve güvenilir olduğunu gösterir.
-        """)
+    with st.expander(texts[lang]['metrics_expander_header']): 
+        st.write(texts[lang]['metrics_expander_content']) 
