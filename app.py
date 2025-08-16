@@ -27,7 +27,14 @@ texts = {
         'internet_service_options': ('DSL', 'Fiber Optik', 'İnternet yok'),
         'internet_addon_options': ('Evet', 'Hayır', 'İnternet hizmeti yok'),
         'project_details_header': "Projenin Amacı ve Teknik Detaylar",
-        'project_details_text': """...""", # Bu metni bir önceki cevaptan alabilirsin
+        'project_details_text': """
+        Bu projenin amacı, bir telekom şirketinin hangi müşterilerini kaybetme riski altında olduğunu önceden tespit etmektir. 
+        Bu bilgi, şirketin bu müşterilere özel teklifler sunarak veya sorunlarını çözerek onları elde tutmasına olanak tanır.
+
+        - **Model:** XGBoost Classifier
+        - **Hedef Değişken:** `Churn` (Müşteri terk etti mi? Evet/Hayır)
+        - **Önemli Not:** Veri seti bir miktar dengesiz olduğu için (`Churn=Yes` oranı daha düşük), model `scale_pos_weight` parametresi ile bu durumu telafi edecek şekilde eğitilmiştir.
+        """,
         'model_performance_header': "📊 Model Performansı",
         'accuracy_metric_label': "🎯 Model Doğruluğu (Accuracy)",
         'accuracy_metric_help': "Modelin test verisindeki genel doğruluk oranıdır.",
@@ -67,7 +74,13 @@ texts = {
         'internet_service_options': ('DSL', 'Fiber optic', 'No'),
         'internet_addon_options': ('Yes', 'No', 'No internet service'),
         'project_details_header': "Project Purpose and Technical Details",
-        'project_details_text': """...""", # You can get this text from the previous response
+        'project_details_text': """
+        The purpose of this project is to proactively identify which customers of a telecom company are at risk of churning.
+        This information allows the company to retain these customers by offering special deals or resolving their issues.
+        - **Model:** XGBoost Classifier
+        - **Target Variable:** `Churn` (Did the customer leave? Yes/No)
+        - **Important Note:** As the dataset is somewhat imbalanced (lower rate of `Churn=Yes`), the model was trained with the `scale_pos_weight` parameter to compensate.
+        """,
         'model_performance_header': "📊 Model Performance",
         'accuracy_metric_label': "🎯 Model Accuracy",
         'accuracy_metric_help': "The overall accuracy of the model on the test data.",
